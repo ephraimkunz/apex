@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{lang}}">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    {{title}} - Apex Plumbing
+  </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description"
+    content="Apex Plumbing provides the residential plumbing repair service in Cache Valley, Utah.">
+
+  <!-- styles -->
+  <link rel="stylesheet" href="/static/styles/solarized-dark.css" />
+  <link rel="stylesheet" href="{{assets.css.vendor}}" />
+  <link rel="stylesheet" href="{{assets.css.fonts}}" />
+  <link rel="stylesheet" href="{{assets.css.app}}" />
+
+  <!-- favicon -->
+  <link rel="icon" href="/static/images/cropped-Apex_FINAL-32x32.jpg" sizes="32x32" />
+  <link rel="icon" href="/static/images/cropped-Apex_FINAL-192x192.jpg" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/static/images/cropped-Apex_FINAL-180x180.jpg" />
+</head>
+
+<body>
+  {{> components/nav}}
+  <main>
+    <header class="mt3 mb6 w-100 mw-none ph3 mw8-m mw9-l center">
+      <div class="flex flex-column flex-row-l">
+        <div class="w-70-l mw8-l">
+            {{~> page}}
+        </div>
+        <div class="w-30-l flex-column pl0-l pr0-l pl3 pr3">
+          <h4>Call us today!</h4>
+          <a class="phone-number" href="tel:4352137146">Phone: 435-213-7146</a>
+        </div>
+      </div>
+    </header>
+  </main>
+  {{> components/footer}}
+</body>
+
+</html>

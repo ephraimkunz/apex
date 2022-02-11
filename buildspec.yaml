@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+  variables:
+     PATH: "/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/codebuild/user/bin"
+phases:
+  install:
+    commands:
+      # Install rust toolchanin
+      - curl -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal
+  build:
+    commands:
+      # build Rust binary
+      - cargo build --release
+      # binary name must be "bootstrap" for Lambda custom runtime
+      - mv target/release/apex bootstrap
+      # strip & check size, dependencies
+      - strip --strip-all bootstrap
+      - size bootstrap
+      - ldd bootstrap
+artifacts:
+  files:
+    - bootstrap
+    - templates
+    - static
+    
+    # - add other resources such as CSS, Javascript assets, etc.
+  #discard-paths: yes

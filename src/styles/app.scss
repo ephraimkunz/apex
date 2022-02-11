@@ -1,0 +1,623 @@
+@import "tachyons-ext";
+
+$body-font: "Fira Sans", Helvetica, Arial, sans-serif;
+$header-font: "Alfa Slab One", serif;
+
+$gray: #2a3439;
+$red: #a72145;
+$green: #0b7261;
+$purple: #2e2459;
+$yellow: #ffc832;
+$blue: #5a899d;
+$border-radius: 4px;
+$link-color: #4299bf;
+$footer-gray: $gray;
+
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (min-width: 30em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  font-family: $body-font;
+  background-color: white;
+  font-size: 1.5rem;
+  line-height: 1.6;
+
+  /* Ensure the footer is always at the bottom of the screen */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  & > main {
+    flex: 1;
+  }
+}
+
+code {
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+pre > code {
+  display: block;
+  white-space: pre;
+  width: 100%;
+}
+
+@media (min-width: 64rem) {
+  .buttons {
+    min-height: 70px;
+  }
+}
+@media (max-width: 64rem) {
+  .buttons {
+    min-height: 0px;
+  }
+}
+
+.button {
+  display: inline-block;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 30px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus {
+    outline: 0;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+}
+
+.button.button-secondary {
+  font-size: 0.8em;
+}
+
+.button-additional {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+code.code-header {
+  background-color: rgba(127, 127, 127, 0.25);
+  font-size: 2rem;
+  display: inline-block;
+  margin: 0 0 3px 0;
+}
+
+header h1,
+section h2 {
+  z-index: 999999;
+  position: relative;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+header h1 {
+  font-family: $header-font;
+  font-size: 8rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+header h2 {
+  font-size: 4.2rem;
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+section h3 {
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+section p,
+code {
+  line-height: 1.6;
+}
+
+header .button.button-download {
+  color: black;
+  background-color: $yellow;
+  border-color: $yellow;
+  width: 100%;
+  padding: 20px;
+  height: auto;
+  font-size: 2.25rem;
+  margin-top: 20px;
+
+  &:hover,
+  &:focus {
+    border-color: black;
+  }
+}
+
+h2.subtitle {
+  margin: 0;
+  font-family: $body-font;
+  font-size: 3rem;
+  font-weight: 600;
+  color: $gray;
+}
+
+section {
+  padding: 30px 0 60px 0;
+
+  header {
+    padding: 10px 0 30px 0;
+    display: inline-block;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+      letter-spacing: 1px;
+      font-size: 3rem;
+      line-height: 1.25;
+    }
+  }
+
+  h2 {
+    font-family: $body-font;
+    font-weight: 800;
+  }
+
+  h3 {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+}
+
+ul {
+  list-style: disc;
+  padding-left: 1.5em;
+}
+
+ol {
+  list-style: decimal;
+  padding-left: 1.5em;
+}
+
+.nav a {
+  color: $gray;
+}
+
+div.brand {
+  color: black;
+  font-family: $header-font;
+  font-size: 3rem;
+  text-decoration: none;
+
+  img {
+    width: 550px;
+    margin-top: 10px;
+  }
+
+  span {
+    display: inline-block;
+    margin-left: -1rem;
+  }
+}
+
+a.brand {
+  color: black;
+  text-decoration: none;
+}
+
+.domain-icon {
+  min-height: 100px;
+  img {
+    max-width: 50%;
+    max-height: 50%;
+    padding-bottom: 20px;
+  }
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+.red {
+  background-color: $red;
+  color: white;
+  .highlight {
+    background-color: $purple;
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  .button.button-secondary {
+    background-color: $purple;
+    border-color: $purple;
+    color: white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      border-color: white;
+    }
+  }
+}
+
+.green {
+  background-color: $green;
+  color: white;
+  .highlight {
+    background-color: $purple;
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  .button.button-secondary {
+    background-color: $purple;
+    border-color: $purple;
+    color: white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      border-color: white;
+    }
+  }
+}
+
+.white {
+  color: black;
+  .highlight {
+    background-color: $yellow;
+  }
+  a {
+    color: $gray;
+    text-decoration: underline;
+  }
+  .button.button-secondary {
+    background-color: $yellow;
+    border-color: $yellow;
+    color: $gray;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      border-color: $gray;
+    }
+  }
+}
+
+.purple {
+  background-color: $purple;
+  color: white;
+  .highlight {
+    background-color: $red;
+  }
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+  .button.button-secondary {
+    background-color: $red;
+    border-color: $red;
+    color: white;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      border-color: white;
+    }
+  }
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.5em;
+  letter-spacing: normal;
+}
+
+.highlight {
+  height: 12px;
+  position: relative;
+  top: 0;
+  left: -10px;
+  width: 120%;
+  max-width: 90vw;
+  line-height: 1.6;
+  border-radius: 2px;
+}
+
+.phone-number {
+  color: $blue
+}
+
+footer {
+  padding: 30px 0;
+  background-color: $footer-gray;
+  color: white;
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+footer h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+footer img {
+  width: 40px;
+  padding: 0 10px;
+}
+
+footer .attribution {
+  text-align: center;
+  padding-top: 30px;
+}
+
+footer .languages {
+  color: $gray;
+}
+
+blockquote {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  position: relative;
+  border-bottom: 1px dotted $gray;
+  padding: 5px;
+  color: $gray;
+}
+
+blockquote::before {
+  content: "“";
+  color: $gray;
+  font-size: 3em;
+  position: absolute;
+  left: -50px;
+  top: 20px;
+}
+
+.production .four {
+  text-align: center;
+}
+
+#production .attribution {
+  text-align: right;
+}
+
+.production .button.button-secondary {
+  margin-top: 30px;
+}
+
+.testimonial img {
+  padding: 10px;
+}
+
+.production .attribution {
+  font-size: 1.5em;
+  text-align: right;
+}
+
+#whitepapers .top-border {
+  padding-top: 20px;
+  border-top: 1px white dotted;
+}
+
+#prod-highlights {
+  img {
+    width: 100%;
+  }
+}
+
+#users .row .columns {
+  position: relative;
+  height: 200px;
+}
+
+#users img {
+  max-height: 200px;
+  max-width: 100px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.user-logo {
+  min-height: 100px;
+}
+
+.user-container {
+  min-height: 300px;
+}
+
+#share-your-experience h3,
+#production-domains h3 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#learn-begin {
+  p:first-of-type {
+    padding-bottom: 20px;
+    border-bottom: 1px white dotted;
+  }
+}
+
+#learn-use {
+  img {
+    width: 30%;
+  }
+  .domain {
+    text-align: center;
+  }
+}
+
+#rust-trademarks {
+  img {
+    vertical-align: middle;
+  }
+}
+
+.tools-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.tools-row #tools-write-ide-prose {
+  margin-right: 10px;
+}
+
+#embedded-showcase-gallery {
+  iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+iframe {
+  border: none;
+}
+
+#cli-pitch {
+  .domain-icon {
+    display: block;
+    padding-bottom: 0;
+    min-width: 100px;
+
+    img {
+      max-width: 90px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 1em;
+      opacity: 0.9;
+    }
+  }
+}
+
+#cli-use-it {
+  pre {
+    color: #fff;
+  }
+}
+
+#ferris-error {
+  width: 80%;
+}
+
+.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+.install-details {
+  background-color: rgba(white, 0.15);
+  border: 1px solid rgba(white, 0.65);
+  margin-bottom: 20px;
+  padding: 0.2rem 0.5rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 769px) {
+  .highlight {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
+
+// Temporary HACK: switch away from this when we switch to using Tachyons for
+// the page titles -- at that time, we should make a simple component class that
+// just composes those classes.
+// This hard-coded value for the break-point matches what is in Skeleton.
+@media screen and (max-width: 550px) {
+  header {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2.subtitle {
+      font-size: 2.5rem;
+      line-height: 1.1;
+    }
+  }
+}
+
+.testimonial {
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 545px) {
+    display: block;
+  }
+}
+
+.download-link {
+  color: $link-color;
+}
+
+.max-height-5rem {
+  /* Tachyons is missing this class */
+  max-height: 5rem;
+}
+
+.max-height-10rem {
+  /* Tachyons is missing this class */
+  max-height: 10rem;
+}
