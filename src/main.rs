@@ -79,7 +79,6 @@ async fn files(file: PathBuf) -> Option<Cached<NamedFile>> {
 }
 
 #[get("/robots.txt", rank = 1)]
-
 fn robots_txt() -> Option<&'static str> {
     if *ROBOTS_TXT_DISALLOW_ALL {
         Some("User-agent: *\nDisallow: /")
