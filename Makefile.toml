@@ -47,3 +47,8 @@ dependencies = ["cleanup_assets"]
 command = "cargo"
 args = ["build", "--release"]
 dependencies = ["generate_assets"]
+
+[tasks.run]
+command = "cargo"
+args = ["run", "--release"]
+dependencies = ["generate_assets"]
