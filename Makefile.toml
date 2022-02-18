@@ -1,0 +1,49 @@
+[tasks.cleanup_assets]
+command = "rm"
+args = ["-f", "./static/styles/app_packaged.css", "./static/styles/fonts_packaged.css", "./static/styles/vendor_packed.css"]
+
+[tasks.generate_assets]
+script_runner = "@rust"
+script = '''
+//! ```cargo
+//! [dependencies]
+//! sass-rs = "0.2.1"
+//! ```
+fn main() {
+    compile_sass("app");
+    compile_sass("fonts");
+    concat_vendor_css(vec!["tachyons"]);
+}
+
+fn compile_sass(filename: &str) {
+    let scss_file = format!("./src/styles/{}.scss", filename);
+
+    let css = sass_rs::compile_file(&scss_file, sass_rs::Options::default())
+        .unwrap_or_else(|_| panic!("couldn't compile sass: {}", &scss_file));
+
+    let css_packaged = format!("{}_packaged", filename);
+    let css_file = format!("./static/styles/{}.css", css_packaged);
+
+    std::fs::write(&css_file, css.into_bytes())
+        .unwrap_or_else(|_| panic!("couldn't write css file: {}", &css_file));
+}
+
+fn concat_vendor_css(files: Vec<&str>) {
+    let mut concatted = String::new();
+    for filestem in files {
+        let vendor_path = format!("./static/styles/{}.css", filestem);
+        let contents = std::fs::read_to_string(vendor_path).expect("couldn't read vendor css");
+        concatted.push_str(&contents);
+    }
+
+    let css_path = "./static/styles/vendor_packaged.css";
+
+    std::fs::write(&css_path, &concatted).expect("couldn't write vendor css");
+}
+'''
+dependencies = ["cleanup_assets"]
+
+[tasks.build]
+command = "cargo"
+args = ["build", "--release"]
+dependencies = ["generate_assets"]
