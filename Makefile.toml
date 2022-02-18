@@ -52,3 +52,7 @@ dependencies = ["generate_assets"]
 command = "cargo"
 args = ["run", "--release"]
 dependencies = ["generate_assets"]
+
+[tasks.clean]
+command = "rm"
+args = ["-f", "lambda.zip"]
